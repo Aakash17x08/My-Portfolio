@@ -1,0 +1,395 @@
+/* AboutSection.css (Improved for theme support & aesthetics) */
+
+/* General Styling */
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s;
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--heading-color);
+  position: relative;
+  width: max-content;
+}
+
+.profile-info h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--heading-background);
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.profile-info h1:hover::after {
+  width: 0;
+}
+
+.profile-info h2 {
+  margin: 4px 0 10px;
+  font-size: 1.25rem;
+  color: gray;
+}
+
+.profile-info p {
+  max-width: 500px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Section Styling */
+section {
+  margin-bottom: 40px;
+}
+
+section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+  position: relative;
+  width: max-content;
+  transition: color 0.3s ease;
+}
+
+section h3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--heading-background);
+  bottom: -6px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+section h3:hover::after {
+  width: 0;
+}
+
+/* Cards Section */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 45%;
+  background: var(--project-card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  color: var(--text-color);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background-color: var(--heading-background);
+
+}
+
+.card h4 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--heading-color);
+  transition: color 0.3s;
+}
+
+.card .duration {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 6px 0;
+}
+
+.card .note {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.card ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.card ul li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.portfolio-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  padding: 2rem;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-skills-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.my-journey,
+.technical-skills {
+  flex: 1 1 45%;
+}
+
+.my-journey h2,
+.technical-skills h2,
+.contact-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.my-journey p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--project-card-bg);
+  border: 1px solid var(--nav-border-btm);
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  cursor: default;
+}
+
+.skill-item:hover {
+  background-color: var(--heading-color);
+  color: var(--bg-color);
+  transform: scale(1.05);
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  color: #2563eb;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  color: #f87171; /* soft red/pink on hover */
+}
+
+.contact-section {
+  background-color: var(--projects-section-background);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--text-color);
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--nav-border-btm);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-btn-bg-hover);
+  box-shadow: 0 0 5px var(--primary-btn-bg-hover);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: var(--primary-btn-bg);
+  color: white;
+  padding: 0.75rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--primary-btn-bg-hover);
+}
+
+.certifications-section {
+  background-color: var(--projects-section-background);
+  padding: 2.5rem 2rem;
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 20px;
+}
+
+.section-title {
+  color: var(--heading-color);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: max-content;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--heading-background);
+  bottom: -6px;
+  left: 0;
+  border-radius: 4px;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.section-title:hover::after {
+  width: 0;
+}
+
+.certification-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cert-card {
+  background-color: var(--project-card-bg);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  min-width: 250px;
+  max-width: 300px;
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.3s ease, background-color 0.3s;
+  cursor: default;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  color: #fff;
+}
+
+.cert-icon {
+  font-size: 1.25rem;
+  color: var(--heading-color);
+  transition: color 0.3s;
+}
+
+.cert-title {
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.cert-provider,
+.cert-year {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  opacity: 0.85;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.cert-card:hover .cert-provider,
+.cert-card:hover .cert-year {
+  opacity: 1;
+}

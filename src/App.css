@@ -1,0 +1,220 @@
+/* @import "tailwindcss"; */
+
+/* THEME VARIABLES */
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --heading-color: #111111;
+  --heading-background: linear-gradient(
+    to right,
+    rgb(183, 74, 74),
+    rgb(255, 255, 255)
+  );
+  --slider-track-color: #f3f4f6;
+  --slider-knob-color: #262323;
+  --slider-checked-bg: #4f4f4f;
+  --slider-focus-outline: #80bdff;
+  --nav-bg: #ffffff;
+  --nav-border-btm: #020203;
+  --project-card-bg: #fff;
+  --primary-btn-bg: #121212;
+  --primary-btn-bg-hover: #737373;
+  --projects-section-background: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #fefefe;
+  --heading-color: #ffffff;
+  --heading-background: linear-gradient(
+    to right,
+    rgb(189, 74, 74),
+    rgb(22, 17, 17)
+  );
+  --slider-track-color: #2c2c2c;
+  --slider-knob-color: #ffffff;
+  --slider-checked-bg: #f1f1f1;
+  --slider-focus-outline: #b3d4fc;
+  --nav-bg: #111111;
+  --nav-border-btm: #2a2a2a;
+  --project-card-bg: #1c1c1c;
+  --primary-btn-bg: #2c2c2c;
+  --primary-btn-bg-hover: #b74c4c;
+  --projects-section-background: #1c1c1c;
+
+}
+
+/* BASE STYLES */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  padding: 0 30px;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color: var(--heading-color);
+  transition: color 0.3s;
+  position: relative;
+  width: max-content;
+}
+h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--heading-background);
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+h1:hover::after {
+  width: 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+}
+
+/* NAVBAR STYLES */
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-bg);
+  padding: 0 30px;
+  border-bottom: var(--nav-border-btm);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, border-bottom-color 0.3s;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  padding: 10px 6px;
+}
+
+/* Hover underline effect */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--heading-color);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: var(--heading-color);
+}
+
+/* Decorative ::before border pulse on hover */
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.03);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+/* MODE SWITCH */
+.mode-switch {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* HIDE NATIVE CHECKBOX */
+.mode-switch input {
+  display: none;
+}
+
+/* WRAPPER */
+.mode-switch label {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* SLIDER TRACK */
+.mode-switch .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--slider-track-color);
+  border-radius: 34px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+/* SLIDER KNOB */
+.mode-switch .slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--slider-knob-color);
+  border-radius: 50%;
+  transition: transform 0.4s, background-color 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* TOGGLE ON STATE */
+.mode-switch input:checked + .slider {
+  background-color: var(--slider-checked-bg);
+}
+
+.mode-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* ACCESSIBILITY: FOCUS STYLE */
+.mode-switch input:focus + .slider {
+  box-shadow: 0 0 0 2px var(--slider-focus-outline);
+  outline: none;
+}
+
+/* OPTIONAL: HOVER FEEDBACK */
+.mode-switch label:hover .slider {
+  filter: brightness(0.95);
+}
