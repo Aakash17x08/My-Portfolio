@@ -138,3 +138,9 @@
     padding-top: 15px;
   }
 }
+
+@media only screen and (min-width: 250px) and (max-width: 516px) {
+  .footer{
+    width: 100vh;
+  }
+}

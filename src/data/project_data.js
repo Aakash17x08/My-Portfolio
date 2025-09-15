@@ -69,6 +69,16 @@ const projects = [
     liveDemo: "https://disaster-helper-demo.com",
     github: "https://github.com/Aakash17x08/Disaster-Helper",
   },
+  {
+    id: 8,
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website showcasing my projects, skills, and experience, built with React and styled using TailwindCSS.",
+    technologies: ["React", "CSS",],
+    image: "/assets/port.png",
+    liveDemo: "https://aakashmaurya.netlify.app/",
+    github: "https://github.com/Aakash17x08/My-Portfolio",
+  },
 ];
 
 export default projects;

@@ -1,0 +1,8 @@
+@media only screen and (min-width: 110px) and (max-width: 516px) {
+  .contact-section{
+    width: 99vh;
+  }
+  form {
+    padding: 0 1.2rem 0 0;
+  }
+}
