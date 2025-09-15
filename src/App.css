@@ -20,7 +20,10 @@
   --primary-btn-bg: #121212;
   --primary-btn-bg-hover: #737373;
   --projects-section-background: #f8f9fa;
+  --hover-certificate-bg:#f8f9fa;
 }
+
+
 
 [data-theme="dark"] {
   --bg-color: #121212;
@@ -41,7 +44,7 @@
   --primary-btn-bg: #2c2c2c;
   --primary-btn-bg-hover: #b74c4c;
   --projects-section-background: #1c1c1c;
-
+  --hover-certificate-bg: #1c1c1c;
 }
 
 /* BASE STYLES */
@@ -53,6 +56,12 @@ body {
   transition: background-color 0.3s, color 0.3s;
   padding: 0;
   margin: 0;
+}
+
+.hr{
+  height: 1px;
+  background-color: var(--nav-border-btm);
+  border: none;
 }
 
 h1 {
@@ -85,10 +94,10 @@ h1:hover::after {
 /* NAVBAR STYLES */
 
 
-.navbar {
+/* .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--nav-bg);
   padding: 0 30px;
   border-bottom: var(--nav-border-btm);
@@ -96,7 +105,7 @@ h1:hover::after {
   transition: background-color 0.3s, border-bottom-color 0.3s;
   position: relative;
   z-index: 1000;
-}
+} */
 
 .navbar div {
   display: flex;
@@ -114,7 +123,7 @@ h1:hover::after {
 }
 
 /* Hover underline effect */
-.navbar a::after {
+/* .navbar a::after {
   content: "";
   position: absolute;
   bottom: 4px;
@@ -124,7 +133,7 @@ h1:hover::after {
   background-color: var(--heading-color);
   transition: width 0.3s ease;
   border-radius: 2px;
-}
+} */
 
 .navbar a:hover::after {
   width: 100%;
@@ -217,4 +226,102 @@ h1:hover::after {
 /* OPTIONAL: HOVER FEEDBACK */
 .mode-switch label:hover .slider {
   filter: brightness(0.95);
+}
+
+
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.navbar {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 120px;
+}
+
+.nav-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+
+
+/* === Brand Name === */
+.brand-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #ff0808, #1f1d22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Navigation Links === */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: gray;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* === Active Nav Link (Current Route) === */
+.nav-link.active {
+  background: linear-gradient(135deg, #af4040, #272020);
+  color: white !important;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* === Theme Toggle Button === */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-icon-circle {
+  width: 38px;
+  height: 38px;
+  background-color: #1f2937; /* Tailwind's gray-800 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: orange;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-icon-circle:hover {
+  background-color: #000000; /* Tailwind's gray-700 */
 }

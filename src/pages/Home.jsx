@@ -51,7 +51,7 @@ const Home = () => {
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
           >
             <a
-              href="/assets/Aakash_Resume.docx"
+              href="/assets/Aakash_Maurya_Resume.docx"
               className="primary-btn"
               target="_blank"
               rel="noopener noreferrer"
