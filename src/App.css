@@ -265,9 +265,7 @@ h1:hover::after {
 .brand-name {
   font-weight: 700;
   font-size: 1.5rem;
-  background: linear-gradient(to right, #ff0808, #1f1d22);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: var(--bg-color);
 }
 
 /* === Navigation Links === */
@@ -296,7 +294,7 @@ h1:hover::after {
 
 /* === Active Nav Link (Current Route) === */
 .nav-link.active {
-  background: linear-gradient(135deg, #af4040, #272020);
+  background: var(--primary-btn-bg);
   color: white !important;
   font-weight: bold;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

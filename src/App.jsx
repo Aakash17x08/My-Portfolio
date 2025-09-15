@@ -22,17 +22,9 @@ function App() {
 
         {/* routes */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/" element={<About />} />
-          {/* <Route path="/about" element={<About />} /> */}
 
-
-          {/* 🧭 Nested Routing for /project */}
           <Route path="/project" element={<Projects />}>
-            {/*
-              <Route path="all" element={<All />} />
-              <Route path="frontend" element={<Frontend />} />
-            */}
           </Route>
 
           <Route path="/contact" element={<Contact />} />

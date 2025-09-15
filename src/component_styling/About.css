@@ -286,6 +286,14 @@ section h3:hover::after {
   box-shadow: 0 0 5px var(--primary-btn-bg-hover);
 }
 
+.show-exp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
 .contact-form textarea {
   min-height: 120px;
   resize: vertical;
@@ -411,6 +419,7 @@ section h3:hover::after {
   color: var(--text-color);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 
 .elem h2 {
   font-size: 3vw;

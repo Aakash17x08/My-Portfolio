@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import projects from "../data/project_data";
 import "../component_styling/Project.css";
 import {
@@ -23,15 +23,30 @@ import {
 } from "react-icons/si";
 import { MdOutlineApi } from "react-icons/md";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { Link, Outlet } from "react-router-dom"; // For routing
 
 const Projects = () => {
+  const [filter, setFilter] = useState("all");
+
+  // Filter projects based on category
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
   return (
     <>
       <h1 className="project-heading">My Projects</h1>
 
+      {/* Filter Buttons */}
+      <div className="filter-buttons">
+        <button onClick={() => setFilter("all")}>All</button>
+        <button onClick={() => setFilter("frontend")}>Frontend</button>
+        <button onClick={() => setFilter("fullstack")}>Full-Stack</button>
+        <button onClick={() => setFilter("other")}>Others</button>
+      </div>
+
       <div className="projects-container">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <div className="project-card" key={project.id}>
             <img
               src={project.image}

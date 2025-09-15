@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../component_styling/About.css";
 import certifications from "../data/certificate";
 
@@ -132,6 +132,10 @@ const About = () => {
               <li>Developed apps using React & Node.js</li>
               <li>Implemented backend DB optimizations</li>
             </ul>
+            <div className="show-exp hover-box">
+              <img className="img" src="/assets/DEV.png" alt="Web development" />
+              <h6>View Certificate</h6>
+            </div>
           </div>
           <div className="card">
             <h4>Google AI/ML Virtual Internship</h4>
@@ -142,6 +146,10 @@ const About = () => {
               <li>Worked on real ML projects</li>
               <li>Used Python + ML libraries</li>
             </ul>
+            <div className="show-exp hover-box">
+              <img className="img" src="/assets/AIML.png" alt="AIML experience" />
+              <h6>View Certificate</h6>
+            </div>
           </div>
         </div>
       </section>
@@ -156,9 +164,9 @@ const About = () => {
                 <img className="img" src={cert.image} alt={cert.title} />
                 <div className="overlay"></div>
                 <h2>{cert.title}</h2>
-                <p>
+                {/* <p>
                   {cert.provider} - {cert.year}
-                </p>
+                </p> */}
               </div>
             ))}
           </div>

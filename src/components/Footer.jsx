@@ -23,53 +23,7 @@ import "../component_styling/Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <section className="tech-section">
-        <h3>Technical Skills</h3>
-        <div className="tech-icons">
-          <div>
-            <i>
-              <FaReact className="icon react" />
-            </i>
-            <p>Frontend Development</p>
-          </div>
-          <div>
-            <i>
-              <FaNodeJs className="icon node" />
-              <SiExpress className="icon" />
-              <SiSocketdotio className="icon" />
-              {/* <MdOutlineApi className="icon" /> */}
-            </i>
-            <p>Backend Development</p>
-          </div>
-          <div>
-            <i>
-              <FaDatabase className="icon db" />
-              <SiMysql className="icon" />
-              {/* <SiSqlite className="icon" /> */}
-              <SiDocker className="icon" />
-            </i>
-            <p>Database</p>
-          </div>
-          <div>
-            <i>
-              <FaJava className="icon" />
-              <TbBrandCpp className="icon" />
-              <FaPython className="icon" />
-            </i>
-            <p>Languages</p>
-          </div>
-          <div>
-            <i>
-              <FaHtml5 className="icon" />
-              <FaCss3Alt className="icon" />
-              <SiBootstrap className="icon" />
-              <SiTailwindcss className="icon" />
-              <FaJs className="icon" />
-            </i>
-            <p>Web Technologies</p>
-          </div>
-        </div>
-      </section>
+      
 
       <hr className="hr"/>
 
