@@ -16,7 +16,7 @@ const projects = [
     image: "/assets/lodgestay.png",
     liveDemo: "https://lodgestay-demo.com",
     github: "https://github.com/Aakash17x08/lodge-stay",
-    category: "backend", // full-stack marked as backend
+    category: "fullstack", // full-stack marked as backend
   },
   {
     id: 2,
@@ -27,18 +27,18 @@ const projects = [
     image: "/assets/chess.png",
     liveDemo: "https://chess-demo.com",
     github: "https://github.com/Aakash17x08/Chess",
-    category: "backend",
+    category: "fullstack",
   },
   {
     id: 3,
-    title: "Flash-Ide",
+    title: "Flash-Ide: AI code editor",
     description:
       "Flash IDE is a fast, responsive online code editor built with React and Monaco, supporting real-time HTML, CSS, and JS editing with a built-in console.",
-    technologies: ["React"],
+    technologies: ["React","Node.js","API"],
     image: "/assets/flash.png",
     liveDemo: "https://flash-ide-demo.com",
     github: "https://github.com/Aakash17x08/Flash-IDE",
-    category: "frontend",
+    category: "fullstack",
   },
   {
     id: 4,
@@ -78,7 +78,7 @@ const projects = [
     image: "/assets/tracker.png",
     liveDemo: "https://tracker-demo.com",
     github: "https://github.com/Aakash17x08/Real-Time-Device-Tracker",
-    category: "backend",
+    category: "fullstack",
   },
   {
     id: 7,
@@ -96,7 +96,7 @@ const projects = [
     image: "/assets/hackathon.png",
     liveDemo: "https://disaster-helper-demo.com",
     github: "https://github.com/Aakash17x08/Disaster-Helper",
-    category: "backend",
+    category: "fullstack",
   },
   {
     id: 8,

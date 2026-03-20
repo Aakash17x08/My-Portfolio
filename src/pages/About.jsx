@@ -1,6 +1,5 @@
-import React from "react";
-import "../component_styling/About.css";
 import certifications from "../data/certificate";
+import "../component_styling/About.css";
 
 // React Icons
 import {
@@ -12,28 +11,50 @@ import {
   FaPython,
   FaJava,
   FaGitAlt,
-  FaDatabase,
+  FaServer,
+  FaChartLine,
+  FaGraduationCap,
+  FaBriefcase,
 } from "react-icons/fa";
-import { SiExpress, SiMysql, SiTailwindcss } from "react-icons/si";
+import {
+  SiExpress,
+  SiMysql,
+  SiTailwindcss,
+  SiNumpy,
+  SiPandas,
+  SiScipy,
+  SiPlotly,
+  SiMongodb,
+  SiFlask,
+} from "react-icons/si";
 
 const skills = [
-  { name: "React", icon: <FaReact /> },
-  { name: "JavaScript", icon: <FaJs /> },
-  { name: "HTML5", icon: <FaHtml5 /> },
-  { name: "CSS3", icon: <FaCss3Alt /> },
-  { name: "Node.js", icon: <FaNodeJs /> },
-  { name: "Python", icon: <FaPython /> },
-  { name: "Java", icon: <FaJava /> },
-  { name: "Git", icon: <FaGitAlt /> },
-  { name: "Express", icon: <SiExpress /> },
-  { name: "Tailwind", icon: <SiTailwindcss /> },
-  { name: "MongoDB", icon: <FaDatabase /> },
-  { name: "SQL", icon: <SiMysql /> },
+  { name: "NumPy", icon: <SiNumpy className="icon python" /> },
+  { name: "Pandas", icon: <SiPandas className="icon python" /> },
+  { name: "SciPy", icon: <SiScipy className="icon python" /> },
+  { name: "Matplotlib", icon: <FaChartLine className="icon js" /> },
+  { name: "Seaborn", icon: <FaChartLine className="icon js" /> },
+  { name: "Plotly", icon: <SiPlotly className="icon react" /> },
+  { name: "React.js", icon: <FaReact className="icon react" /> },
+  { name: "JavaScript", icon: <FaJs className="icon js" /> },
+  { name: "Node.js", icon: <FaNodeJs className="icon node" /> },
+  { name: "Express.js", icon: <SiExpress className="icon express" /> },
+  { name: "MongoDB", icon: <SiMongodb className="icon db" /> },
+  { name: "MySQL", icon: <SiMysql className="icon sql" /> },
+  { name: "RestAPI", icon: <FaServer className="icon express" /> },
+  { name: "Flask", icon: <SiFlask className="icon python" /> },
+  { name: "HTML", icon: <FaHtml5 className="icon html" /> },
+  { name: "CSS", icon: <FaCss3Alt className="icon css" /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss className="icon tailwind" /> },
+  { name: "Git", icon: <FaGitAlt className="icon git" /> },
+  { name: "Python", icon: <FaPython className="icon python" /> },
+  { name: "Java", icon: <FaJava className="icon java" /> },
 ];
 
 const About = () => {
   return (
     <div id="main" className="about-container">
+      {/* Profile Section */}
       <div className="profile-section">
         <img
           src="/assets/profilePhoto.jpg"
@@ -41,59 +62,68 @@ const About = () => {
           className="profile-image"
         />
         <div className="profile-info">
-          <h1>Aakash Maurya</h1>
-          <h2 className="rotating-title">
-            <span>Full-Stack Web Developer</span>
-            <span>Frontend Developer</span>
-            <span>MERN Stack Developer</span>
-            <span>Backend Developer</span>
-            <span>Student</span>
+          <h1>
+            Aakash Maurya
+          </h1>
+          <h2>
+            Full-Stack Web Developer
           </h2>
           <p>
             Dedicated student developer skilled in creating functional and
-            user-friendly applications through thoughtful design and coding...
+            user-friendly applications through thoughtful design and coding.
           </p>
         </div>
       </div>
 
-      {/* Journey + Skills */}
+      {/* Journey Section */}
       <section className="about-skills-section">
         <div className="my-journey">
-          <h1>My Journey</h1>
-          <p>
-            I am a student developer with a strong passion for building
-            efficient and user-friendly web applications...
-          </p>
-          <p>
-            I enjoy chess and badminton to stay balanced, and I’m always
-            exploring new tech to apply in real-world challenges.
-          </p>
-          <p>
-            My goal is to grow as a developer and contribute to meaningful
-            projects.
-          </p>
-          <div
-            className="hero-buttons"
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
-          >
+          <h3>
+            My Journey
+          </h3>
+          <div className="journey-content">
+            <p>
+              I am a student developer with a strong passion for building
+              efficient and user-friendly web applications.
+            </p>
+            <p>
+              I enjoy chess and badminton to stay balanced, and I’m always
+              exploring new tech to apply in real-world challenges.
+            </p>
+            <p>
+              Right now I am exploring datascience and preparing for DSA and believe me with the end of 2026 I will achieve something big.
+              Till now I have given many interview like cognizant, capgemini, tcs, house of cgi and guess what I have been selcted in most of the companies that I have mentioned.
+            </p>
+          </div>
+          
+          <div style={{ marginTop: "20px" }}>
             <a
               href="/assets/Aakash_Maurya_Resume.pdf"
               className="primary-btn"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ padding: "10px 20px", background: "var(--heading-color)", color: "var(--bg-color)", textDecoration: "none", borderRadius: "5px", fontWeight: "bold" }}
             >
-              Get Resume
+              📄 Get Resume
             </a>
           </div>
         </div>
 
+        {/* Technical Skills */}
         <div className="technical-skills">
-          <h2>Technical Skills</h2>
+          <h3>
+            Technical Skills
+          </h3>
           <div className="skills-grid">
             {skills.map((skill, index) => (
-              <div key={index} className="skill-item">
-                <span className="skill-icon">{skill.icon}</span>
-                <span className="skill-name">{skill.name}</span>
+              <div 
+                key={index} 
+                className="skill-card"
+              >
+                <span className="icon-skill">
+                  {skill.icon}
+                </span>
+                <span>{skill.name}</span>
               </div>
             ))}
           </div>
@@ -101,14 +131,14 @@ const About = () => {
       </section>
 
       {/* Education */}
-      <section className="education-section">
-        <h3>Education</h3>
+      <section>
+        <h3><FaGraduationCap /> Education</h3>
         <div className="cards">
           <div className="card">
             <h4>Bachelor of Computer Application</h4>
             <p>JSPM University</p>
             <p className="duration">2023 - 2026</p>
-            <p className="note">Current CGPA: 8.33+</p>
+            <p className="note">Current CGPA: 8.48</p>
           </div>
           <div className="card">
             <h4>Higher Secondary School</h4>
@@ -120,9 +150,23 @@ const About = () => {
       </section>
 
       {/* Experience */}
-      <section className="experience-section">
-        <h3>Professional Experience</h3>
+      <section>
+        <h3><FaBriefcase />Experience</h3>
         <div className="cards">
+          <div className="card">
+            <h4>Full Stack Developer Internship</h4>
+            <p>House of CGI</p>
+            <p className="duration">March 2026 – present</p>
+            <ul>
+              <li>Building websites</li>
+              <li>Understaning how to host website</li>
+              <li>Delivering websites to client.</li>
+            </ul>
+            {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
+               View Certificate
+            </div> */}
+          </div>
+
           <div className="card">
             <h4>Web Full Stack Developer Internship</h4>
             <p>Eduskills</p>
@@ -132,74 +176,51 @@ const About = () => {
               <li>Developed apps using React & Node.js</li>
               <li>Implemented backend DB optimizations</li>
             </ul>
-            <div className="show-exp hover-box">
-              <img className="img" src="/assets/DEV.png" alt="Web development" />
-              <h6>View Certificate</h6>
-            </div>
+            {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
+               View Certificate
+            </div> */}
           </div>
+
           <div className="card">
-            <h4>Google AI/ML Virtual Internship</h4>
-            <p>Eduskills</p>
-            <p className="duration">Jul 2024 – Aug 2024 | AICTE</p>
-            <ul>
-              <li>Learned fundamentals of AI & ML</li>
-              <li>Worked on real ML projects</li>
-              <li>Used Python + ML libraries</li>
-            </ul>
-            <div className="show-exp hover-box">
-              <img className="img" src="/assets/AIML.png" alt="AIML experience" />
-              <h6>View Certificate</h6>
-            </div>
+             <h4>Google AI/ML Virtual Internship</h4>
+             <p>Eduskills</p>
+             <p className="duration">Jul 2024 – Aug 2024 | AICTE</p>
+             <ul>
+               <li>Learned fundamentals of AI & ML</li>
+               <li>Worked on real ML projects</li>
+               <li>Used Python + ML libraries</li>
+             </ul>
+             {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
+              View Certificate
+             </div> */}
           </div>
         </div>
       </section>
 
-      {/* Certificates + Hover Gallery */}
-      <h1>Certificates</h1>
-      <section className="certifications-section">
-        <div id="page3">
-          <div id="elem-container">
-            {certifications.map((cert) => (
-              <div className="elem hover-box" key={cert.title}>
-                <img className="img" src={cert.image} alt={cert.title} />
-                <div className="overlay"></div>
-                <h2>{cert.title}</h2>
-                {/* <p>
-                  {cert.provider} - {cert.year}
-                </p> */}
+      {/* Certificates */}
+      <section>
+        <h3> Certificates</h3>
+        <div className="cards">
+          {certifications.map((cert) => (
+            <div 
+              key={cert.title} 
+              className="card"
+              style={{ padding: "0", overflow: "hidden", display: "flex", flexDirection: "column" }}
+            >
+              <div style={{ width: "100%", height: "200px", background: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img 
+                  src={cert.image} 
+                  alt={cert.title} 
+                  style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} 
+                />
               </div>
-            ))}
-          </div>
+              <div style={{ padding: "15px", flexGrow: 1 }}>
+                <h4 style={{ margin: "0", fontSize: "1.1rem" }}>{cert.title}</h4>
+                <p style={{ margin: "5px 0 0", fontSize: "0.9rem", color: "gray" }}>{cert.provider} • {cert.year}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-
-      {/* Contact */}
-      <section className="contact-section">
-        <h2>Get in Touch</h2>
-        <form
-          className="contact-form"
-          action="https://formspree.io/f/movaqvan"
-          method="POST"
-        >
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
-          </label>
-          <label>
-            Message
-            <textarea name="message" placeholder="Your message" required />
-          </label>
-          <button type="submit">Send Message</button>
-        </form>
       </section>
     </div>
   );

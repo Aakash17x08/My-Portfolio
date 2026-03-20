@@ -1,40 +1,65 @@
-import React from "react";
+import { FaPaperPlane, FaEnvelope, FaUser, FaCommentAlt } from "react-icons/fa";
 import "../component_styling/Contact.css";
 
 const Contact = () => {
   return (
-    <div>
-      <section className="contact-section">
-        <h2>Get in Touch</h2>
-        <form
-          className="contact-form"
-          action="https://formspree.io/f/movaqvan"
-          method="POST"
-        >
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
-          </label>
-          <label>
-            Message
-            <textarea
-              name="message"
-              placeholder="Your message"
-              required
-            ></textarea>
-          </label>
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
+    <div className="contact-container">
+      <div className="contact-card">
+        
+
+        <div className="contact-form-wrapper">
+          <form
+            action="https://formspree.io/f/movaqvan"
+            method="POST"
+          >
+            <div className="form-group">
+              <label className="form-label">
+                <FaUser /> Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">
+                <FaEnvelope /> Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">
+                <FaCommentAlt /> Message
+              </label>
+              <textarea
+                name="message"
+                placeholder="Your message..."
+                required
+                rows="5"
+                className="form-textarea"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="submit-btn"
+            >
+              <FaPaperPlane /> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
