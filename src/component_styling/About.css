@@ -5,10 +5,16 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-family: inherit;
   color: var(--text-color);
   background-color: var(--bg-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px 10px;
+  }
 }
 
 /* Profile Section */
@@ -27,6 +33,11 @@
   object-fit: cover;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-info h1 {
@@ -155,17 +166,39 @@ section h3:hover::after {
 
   .profile-section {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .profile-info {
+    align-items: center;
+  }
+
+  .profile-info h1 {
+    width: auto;
+    text-align: center;
+  }
+  
+  .profile-info h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Shorter bar for better aesthetics when centered */
+  }
+
+  .profile-info p {
+    max-width: 100%;
   }
 
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 5px;
   }
 }
 
 .portfolio-container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: inherit;
   background-color: var(--bg-color);
   padding: 2rem;
   color: var(--text-color);
@@ -174,15 +207,14 @@ section h3:hover::after {
 
 .about-skills-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 2rem;
   margin-bottom: 4rem;
-  flex-wrap: wrap;
 }
 
 .my-journey,
 .technical-skills {
-  flex: 1 1 45%;
+  width: 100%;
 }
 
 .my-journey h2,
@@ -202,10 +234,57 @@ section h3:hover::after {
   transition: color 0.3s ease;
 }
 
-.skills-grid {
+.technical-skills .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr); /* 5 COLUMNS ON LARGE SCREENS */
   gap: 1rem;
+}
+
+.technical-skills .skill-card {
+  background-color: var(--project-card-bg);
+  border-radius: 12px;
+  padding: 1rem 0.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s;
+  flex: none;
+}
+
+@media (max-width: 900px) {
+  .technical-skills .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 COLUMNS ON MEDIUM SCREENS */
+  }
+}
+
+.technical-skills .skill-card:hover {
+  transform: translateY(-8px);
+  background-color: var(--heading-background);
+}
+
+.technical-skills .icon-skill {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+/* Reduced size for small mobile screens to keep them 3 per line */
+@media (max-width: 480px) {
+  .technical-skills .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .technical-skills .skill-card {
+    padding: 0.75rem 0.15rem;
+  }
+  .technical-skills .icon-skill {
+    font-size: 1.5rem !important;
+  }
+  .technical-skills .skill-card span {
+    font-size: 0.7rem;
+  }
 }
 
 .skill-item {
@@ -286,6 +365,14 @@ section h3:hover::after {
   box-shadow: 0 0 5px var(--primary-btn-bg-hover);
 }
 
+.show-exp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
 .contact-form textarea {
   min-height: 120px;
   resize: vertical;
@@ -309,7 +396,7 @@ section h3:hover::after {
 .certifications-section {
   background-color: var(--projects-section-background);
   padding: 2.5rem 2rem;
-  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  font-family: inherit;
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
   border-radius: 20px;
@@ -411,6 +498,7 @@ section h3:hover::after {
   color: var(--text-color);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 
 .elem h2 {
   font-size: 3vw;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import projects from "../data/project_data";
 import "../component_styling/Project.css";
 import {
@@ -11,6 +11,7 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJs,
+  FaExternalLinkAlt
 } from "react-icons/fa";
 import {
   SiExpress,
@@ -22,149 +23,108 @@ import {
   SiDocker,
 } from "react-icons/si";
 import { MdOutlineApi } from "react-icons/md";
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { Link, Outlet } from "react-router-dom"; // For routing
+
+const techIcons = {
+  "React": <FaReact className="icon react" />,
+  "Node.js": <FaNodeJs className="icon node" />,
+  "Express": <SiExpress className="icon node" />,
+  "MongoDB": <FaDatabase className="icon db" />,
+  "SQL": <SiMysql className="icon db" />,
+  "SQLite": <SiSqlite className="icon db" />,
+  "HTML": <FaHtml5 className="icon ui" />,
+  "CSS": <FaCss3Alt className="icon ui" />,
+  "JavaScript": <FaJs className="icon ui" />,
+  "Python": <FaPython className="icon" />,
+  "Java": <FaJava className="icon" />,
+  "Tailwind": <SiTailwindcss className="icon ui" />,
+  "Bootstrap": <SiBootstrap className="icon ui" />,
+  "Socket.io": <SiSocketdotio className="icon" />,
+  "Docker": <SiDocker className="icon" />,
+  "API": <MdOutlineApi className="icon" />,
+};
 
 const Projects = () => {
+  const [filter, setFilter] = useState("all");
+
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
+  const filters = [
+    { id: "all", label: "All" },
+    { id: "frontend", label: "Frontend" },
+    { id: "fullstack", label: "Full-Stack" },
+    { id: "other", label: "Others" },
+  ];
+
   return (
-    <>
+    <div id="projects" className="projects-wrapper">
       <h1 className="project-heading">My Projects</h1>
 
+      <div className="filter-buttons">
+        {filters.map((f) => (
+          <button
+            key={f.id}
+            onClick={() => setFilter(f.id)}
+            className={filter === f.id ? "active" : ""}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
       <div className="projects-container">
-        {projects.map((project) => (
-          <div className="project-card" key={project.id}>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
+        {filteredProjects.map((project) => (
+          <div key={project.id} className="project-card">
+            <div className="image-container">
+               <img
+                src={project.image}
+                alt={project.title}
+                className="project-image"
+              />
+            </div>
+           
             <div className="project-details">
               <h2 className="project-title">{project.title}</h2>
               <p className="project-description">{project.description}</p>
-              <div className="tools-label">Tools Used:</div>
-              <div
-                className="tools-list-and-github"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div
-                  className="tools-list"
-                  style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}
-                >
-                  {project.technologies.includes("React") && (
-                    <span className="tool-item">
-                      <FaReact className="icon react" /> React
-                    </span>
-                  )}
-                  {project.technologies.includes("Node.js") && (
-                    <span className="tool-item">
-                      <FaNodeJs className="icon node" /> Node.js
-                    </span>
-                  )}
-                  {project.technologies.includes("Express") && (
-                    <span className="tool-item">
-                      <SiExpress className="icon" /> Express
-                    </span>
-                  )}
-                  {project.technologies.includes("MongoDB") && (
-                    <span className="tool-item">
-                      <FaDatabase className="icon db" /> MongoDB
-                    </span>
-                  )}
-                  {project.technologies.includes("SQL") && (
-                    <span className="tool-item">
-                      <SiMysql className="icon" /> SQL
-                    </span>
-                  )}
-                  {project.technologies.includes("SQLite") && (
-                    <span className="tool-item">
-                      <SiSqlite className="icon" /> SQLite
-                    </span>
-                  )}
-                  {project.technologies.includes("Python") && (
-                    <span className="tool-item">
-                      <FaPython className="icon" /> Python
-                    </span>
-                  )}
-                  {project.technologies.includes("Java") && (
-                    <span className="tool-item">
-                      <FaJava className="icon" /> Java
-                    </span>
-                  )}
-                  {project.technologies.includes("Tkinter") && (
-                    <span className="tool-item">🖼 Tkinter</span>
-                  )}
-                  {project.technologies.includes("JavaScript") && (
-                    <span className="tool-item">
-                      <FaJs className="icon" /> JavaScript
-                    </span>
-                  )}
-                  {project.technologies.includes("HTML") && (
-                    <span className="tool-item">
-                      <FaHtml5 className="icon" /> HTML
-                    </span>
-                  )}
-                  {project.technologies.includes("CSS") && (
-                    <span className="tool-item">
-                      <FaCss3Alt className="icon" /> CSS
-                    </span>
-                  )}
-                  {project.technologies.includes("Bootstrap") && (
-                    <span className="tool-item">
-                      <SiBootstrap className="icon" /> Bootstrap
-                    </span>
-                  )}
-                  {project.technologies.includes("TailwindCSS") && (
-                    <span className="tool-item">
-                      <SiTailwindcss className="icon" /> TailwindCSS
-                    </span>
-                  )}
-                  {project.technologies.includes("Socket.IO") && (
-                    <span className="tool-item">
-                      <SiSocketdotio className="icon" /> Socket.IO
-                    </span>
-                  )}
-                  {project.technologies.includes("Docker") && (
-                    <span className="tool-item">
-                      <SiDocker className="icon" /> Docker
-                    </span>
-                  )}
-                  {project.technologies.includes("API") && (
-                    <span className="tool-item">
-                      <MdOutlineApi className="icon" /> API
-                    </span>
-                  )}
-                  {project.technologies.includes("UI") && (
-                    <span className="tool-item">
-                      <HiOutlineSquares2X2 className="icon ui" /> UI
-                    </span>
-                  )}
-                </div>
+              
+              <div className="tools-label">Tools:</div>
+              <div className="tools-list">
+                {project.technologies.map((tech, index) => (
+                  <span key={index} className="tool-item">
+                    {techIcons[tech] || null} {tech}
+                  </span>
+                ))}
+              </div>
 
-                {/* GitHub icon link */}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-link"
-                  style={{
-                    marginLeft: "auto",
-                    color: "#333",
-                    fontSize: "1.5rem",
-                  }}
-                  aria-label={`GitHub repository for ${project.title}`}
-                >
-                  <FaGithub />
-                </a>
+              <div className="project-links">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View Code"
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+                {project.liveDemo && (
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Live Demo"
+                  >
+                    <FaExternalLinkAlt />
+                  </a>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
