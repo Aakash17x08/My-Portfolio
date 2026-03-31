@@ -78,17 +78,17 @@ const Projects = () => {
         {filteredProjects.map((project) => (
           <div key={project.id} className="project-card">
             <div className="image-container">
-               <img
+              <img
                 src={project.image}
                 alt={project.title}
                 className="project-image"
               />
             </div>
-           
+
             <div className="project-details">
               <h2 className="project-title">{project.title}</h2>
               <p className="project-description">{project.description}</p>
-              
+
               <div className="tools-label">Tools:</div>
               <div className="tools-list">
                 {project.technologies.map((tech, index) => (

@@ -49,6 +49,15 @@ body {
   padding: 0;
 }
 
+/* Image Interaction Control (Behavioral only, no styling/layout changes) */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
 /* Custom Animations */
 @keyframes fadeInUp {
   from {

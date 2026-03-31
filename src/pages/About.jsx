@@ -95,7 +95,7 @@ const About = () => {
               Till now I have given many interview like cognizant, capgemini, tcs, house of cgi and guess what I have been selcted in most of the companies that I have mentioned.
             </p>
           </div>
-          
+
           <div style={{ marginTop: "20px" }}>
             <a
               href="/assets/Aakash_Maurya_Resume.pdf"
@@ -116,8 +116,8 @@ const About = () => {
           </h3>
           <div className="skills-grid">
             {skills.map((skill, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="skill-card"
               >
                 <span className="icon-skill">
@@ -182,15 +182,15 @@ const About = () => {
           </div>
 
           <div className="card">
-             <h4>Google AI/ML Virtual Internship</h4>
-             <p>Eduskills</p>
-             <p className="duration">Jul 2024 – Aug 2024 | AICTE</p>
-             <ul>
-               <li>Learned fundamentals of AI & ML</li>
-               <li>Worked on real ML projects</li>
-               <li>Used Python + ML libraries</li>
-             </ul>
-             {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
+            <h4>Google AI/ML Virtual Internship</h4>
+            <p>Eduskills</p>
+            <p className="duration">Jul 2024 – Aug 2024 | AICTE</p>
+            <ul>
+              <li>Learned fundamentals of AI & ML</li>
+              <li>Worked on real ML projects</li>
+              <li>Used Python + ML libraries</li>
+            </ul>
+            {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
               View Certificate
              </div> */}
           </div>
@@ -202,16 +202,16 @@ const About = () => {
         <h3> Certificates</h3>
         <div className="cards">
           {certifications.map((cert) => (
-            <div 
-              key={cert.title} 
+            <div
+              key={cert.title}
               className="card"
               style={{ padding: "0", overflow: "hidden", display: "flex", flexDirection: "column" }}
             >
               <div style={{ width: "100%", height: "200px", background: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img 
-                  src={cert.image} 
-                  alt={cert.title} 
-                  style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} 
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
                 />
               </div>
               <div style={{ padding: "15px", flexGrow: 1 }}>
