@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import certifications from "../data/certificate";
 import "../component_styling/About.css";
 
@@ -29,35 +30,49 @@ import {
 } from "react-icons/si";
 
 const skills = [
-  { name: "NumPy", icon: <SiNumpy className="icon python" /> },
-  { name: "Pandas", icon: <SiPandas className="icon python" /> },
-  { name: "SciPy", icon: <SiScipy className="icon python" /> },
-  { name: "Matplotlib", icon: <FaChartLine className="icon js" /> },
-  { name: "Seaborn", icon: <FaChartLine className="icon js" /> },
-  { name: "Plotly", icon: <SiPlotly className="icon react" /> },
-  { name: "React.js", icon: <FaReact className="icon react" /> },
-  { name: "JavaScript", icon: <FaJs className="icon js" /> },
-  { name: "Node.js", icon: <FaNodeJs className="icon node" /> },
-  { name: "Express.js", icon: <SiExpress className="icon express" /> },
-  { name: "MongoDB", icon: <SiMongodb className="icon db" /> },
-  { name: "MySQL", icon: <SiMysql className="icon sql" /> },
-  { name: "RestAPI", icon: <FaServer className="icon express" /> },
-  { name: "Flask", icon: <SiFlask className="icon python" /> },
-  { name: "HTML", icon: <FaHtml5 className="icon html" /> },
-  { name: "CSS", icon: <FaCss3Alt className="icon css" /> },
-  { name: "TailwindCSS", icon: <SiTailwindcss className="icon tailwind" /> },
-  { name: "Git", icon: <FaGitAlt className="icon git" /> },
-  { name: "Python", icon: <FaPython className="icon python" /> },
-  { name: "Java", icon: <FaJava className="icon java" /> },
+  { name: "NumPy", icon: <SiNumpy color="#013243" /> },
+  { name: "Pandas", icon: <SiPandas color="#150458" /> },
+  { name: "SciPy", icon: <SiScipy color="#8caae6" /> },
+  { name: "Matplotlib", icon: <FaChartLine color="#11557c" /> },
+  { name: "Seaborn", icon: <FaChartLine color="#4c72b0" /> },
+  { name: "Plotly", icon: <SiPlotly color="#3f4f75" /> },
+  { name: "React.js", icon: <FaReact color="#61DAFB" /> },
+  { name: "JavaScript", icon: <FaJs color="#F7DF1E" /> },
+  { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
+  { name: "Express.js", icon: <SiExpress color="inherit" /> },
+  { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+  { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+  { name: "RestAPI", icon: <FaServer color="inherit" /> },
+  { name: "Flask", icon: <SiFlask color="inherit" /> },
+  { name: "HTML", icon: <FaHtml5 color="#E34F26" /> },
+  { name: "CSS", icon: <FaCss3Alt color="#1572B6" /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss color="#06B6D4" /> },
+  { name: "Git", icon: <FaGitAlt color="#F05032" /> },
+  { name: "Python", icon: <FaPython color="#3776AB" /> },
+  { name: "Java", icon: <FaJava color="#ed8b00" /> },
 ];
 
 const About = () => {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const visibleSkills = isMobile && !showAllSkills ? skills.slice(0, 5) : skills;
+
   return (
     <div id="main" className="about-container">
       {/* Profile Section */}
       <div className="profile-section">
         <img
-          src="/assets/profilePhoto.jpg"
+          src="/assets/photo.png"
           alt="Aakash"
           className="profile-image"
         />
@@ -115,7 +130,7 @@ const About = () => {
             Technical Skills
           </h3>
           <div className="skills-grid">
-            {skills.map((skill, index) => (
+            {visibleSkills.map((skill, index) => (
               <div
                 key={index}
                 className="skill-card"
@@ -127,6 +142,18 @@ const About = () => {
               </div>
             ))}
           </div>
+
+          {isMobile && (
+            <div className="skills-toggle-container">
+              <button
+                className={`skills-toggle-btn ${showAllSkills ? "expanded" : ""}`}
+                onClick={() => setShowAllSkills(!showAllSkills)}
+              >
+                {showAllSkills ? "Show Less" : "View More"}
+                <span className="skills-toggle-icon">▼</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -158,9 +185,12 @@ const About = () => {
             <p>House of CGI</p>
             <p className="duration">March 2026 – present</p>
             <ul>
-              <li>Building websites</li>
-              <li>Understaning how to host website</li>
-              <li>Delivering websites to client.</li>
+              <li>Optimized website performance through Cloudflare CDN integration, caching strategies, lazy
+              loading, and asset optimization, significantly reducing page load times.</li>
+              <li>Developed and maintained full-stack applications using React.js, Node.js, and REST APIs while
+              following modular architecture and clean coding practices.</li>
+              <li>Built an automated lead-generation and data collection solution that reduced manual effort by
+              approximately 50% and improved sales team productivity</li>
             </ul>
             {/* <div style={{ marginTop: "10px", fontWeight: "bold", cursor: "pointer" }}>
                View Certificate
@@ -197,31 +227,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Certificates */}
-      <section>
-        <h3> Certificates</h3>
-        <div className="cards">
-          {certifications.map((cert) => (
-            <div
-              key={cert.title}
-              className="card"
-              style={{ padding: "0", overflow: "hidden", display: "flex", flexDirection: "column" }}
-            >
-              <div style={{ width: "100%", height: "200px", background: "#f0f0f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-                />
-              </div>
-              <div style={{ padding: "15px", flexGrow: 1 }}>
-                <h4 style={{ margin: "0", fontSize: "1.1rem" }}>{cert.title}</h4>
-                <p style={{ margin: "5px 0 0", fontSize: "0.9rem", color: "gray" }}>{cert.provider} • {cert.year}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      
     </div>
   );
 };

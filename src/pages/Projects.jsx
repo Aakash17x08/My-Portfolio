@@ -78,47 +78,52 @@ const Projects = () => {
         {filteredProjects.map((project) => (
           <div key={project.id} className="project-card">
             <div className="image-container">
-              <img
+               <img
                 src={project.image}
                 alt={project.title}
                 className="project-image"
               />
+              <span className="category-badge">{project.category}</span>
             </div>
-
+           
             <div className="project-details">
-              <h2 className="project-title">{project.title}</h2>
+              <div className="project-header">
+                <h2 className="project-title">{project.title}</h2>
+                
+              </div>
               <p className="project-description">{project.description}</p>
-
-              <div className="tools-label">Tools:</div>
+              
               <div className="tools-list">
                 {project.technologies.map((tech, index) => (
-                  <span key={index} className="tool-item">
-                    {techIcons[tech] || null} {tech}
+                  <span key={index} className="tool-tag">
+                    {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="project-links">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="View Code"
-                  >
-                    <FaGithub />
-                  </a>
-                )}
-                {project.liveDemo && (
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Live Demo"
-                  >
-                    <FaExternalLinkAlt />
-                  </a>
-                )}
+              <div className="project-footer">
+                <div className="project-links">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View Code"
+                    >
+                      <FaGithub />
+                    </a>
+                  )}
+                  {project.liveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Live Demo"
+                    >
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>

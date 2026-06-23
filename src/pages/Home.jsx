@@ -1,10 +1,10 @@
-// src/pages/Home.jsx
+import { Link } from "react-router-dom";
 import "../component_styling/Home.css";
 
 // Import sections
 import About from "./About";
-import Projects from "./Projects";
-import Contact from "./Contact";
+import ProjectMarquee from "../components/ProjectMarquee";
+import Certificates from "../components/Certificates";
 
 const Home = () => {
   return (
@@ -15,12 +15,27 @@ const Home = () => {
       </section>
 
       {/* Projects Section */}
-      {/* We don't wrap in another id="projects" section because Projects component already has it */}
-      <Projects />
+      <section id="projects">
+        <ProjectMarquee />
+        <div className="home-projects-cta">
+          <Link to="/projects" className="explore-btn">
+            Explore All Projects
+          </Link>
 
-      {/* Contact Section at the last */}
-      <section id="contact">
-        <Contact />
+          <div className="interested-text-container">
+            <h2 className="interested-title">
+              Interested in <br /> working together ?
+            </h2>
+            <a href="mailto:aakash17x@gmail.com" className="interested-email">
+              aakash17x@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section id="certificates">
+        <Certificates />
       </section>
     </div>
   );

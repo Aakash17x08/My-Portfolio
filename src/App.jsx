@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./ThemeContext";
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
 
@@ -39,6 +40,7 @@ function App() {
         {/* Since it is a single page application, we render Home as the main entry point */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
           {/* Support old paths by redirecting or just rendering Home */}
           <Route path="/project" element={<Home />} />
           <Route path="/contact" element={<Home />} />

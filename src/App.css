@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@import "https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap";
 @import "tailwindcss";
 
 /* THEME VARIABLES */
@@ -13,37 +13,60 @@ html {
   --color-nav-bg: var(--nav-bg);
   --color-nav-border-btm: var(--nav-border-btm);
   --color-project-card-bg: var(--project-card-bg);
+  --color-projects-section-background: #000000;
+  --color-slider-track-color: #111111;
 }
 
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #fafafa;
   --text-color: #333333;
-  --heading-color: #111111;
-  --heading-background: linear-gradient(to right,
-      rgb(183, 74, 74),
-      rgb(255, 255, 255));
-  --nav-bg: #ffffff;
-  --nav-border-btm: #e5e7eb;
+  --heading-color: #000000;
+  --accent-color: #b74a4a;
+  --accent-color-transparent: rgba(183, 74, 74, 0);
+  --heading-background: linear-gradient(to right, #b74a4a, rgba(183, 74, 74, 0.1));
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --nav-border-btm: rgba(0, 0, 0, 0.05);
   --project-card-bg: #ffffff;
+  --projects-section-background: #f0f0f0;
+  --slider-track-color: #e5e5e5;
+  --hover-certificate-bg: rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #fefefe;
+  --bg-color: #1a1a1a; /* Dark charcoal background from image */
+  --text-color: #d1d1d1;
   --heading-color: #ffffff;
-  --heading-background: linear-gradient(to right,
-      rgb(189, 74, 74),
-      rgb(22, 17, 17));
-  --nav-bg: #111111;
-  --nav-border-btm: #2a2a2a;
-  --project-card-bg: #1c1c1c;
+  --accent-color: #bd4a4a;
+  --accent-color-transparent: rgba(189, 74, 74, 0);
+  --heading-background: linear-gradient(to right, #bd4a4a, rgba(189, 74, 74, 0.1));
+  --nav-bg: rgba(26, 26, 26, 0.85);
+  --nav-border-btm: rgba(255, 255, 255, 0.08);
+  --project-card-bg: #262626; /* Slightly lighter card color from image */
+  --projects-section-background: #1a1a1a;
+  --slider-track-color: #333333; /* Tag background color */
+  --hover-certificate-bg: rgba(255, 255, 255, 0.05);
 }
 
 /* BASE STYLES */
+.home-container {
+  padding: 100px 3rem 2rem; /* Add 100px top padding for floating navbar */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 90px 1.25rem 2rem; /* 90px top padding to stay clear of floating navbar */
+  }
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: "Caveat Brush", cursive, "Segoe UI", "Roboto", "Arial", sans-serif;
+  font-family: "Inter", "Segoe UI", "Roboto", "Arial", sans-serif;
+  font-weight: 600; /* Boosted font weight */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s, color 0.3s;
   margin: 0;
   padding: 0;

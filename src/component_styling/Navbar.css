@@ -1,105 +1,162 @@
-/* Navbar.css */
-.navbar {
-  background-color: var(--nav-bg);
-  border-bottom: 1px solid var(--nav-border-btm);
-  position: sticky;
-  top: 0;
+/* ───────────────────────────────────────────
+   FLOATING GLASS NAVBAR
+─────────────────────────────────────────── */
+
+.navbar-floating {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s;
+  padding: 0 10%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-container {
+.navbar-floating.scrolled {
+  top: 10px;
+}
+
+.nav-glass-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-  height: 70px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--nav-border-btm);
+  border-radius: 16px;
+  padding: 12px 24px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--heading-color);
+[data-theme="dark"] .nav-glass-container {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Redundant light theme block removed as it now uses variables */
+
+/* LOGO */
+.nav-logo-simple {
+  font-size: 1.25rem;
+  font-weight: 800;
   text-decoration: none;
+  color: var(--heading-color);
+  letter-spacing: -0.02em;
 }
 
-.nav-menu {
+.nav-logo-simple .dot {
+  color: #b74a4a;
+}
+
+/* DESKTOP LINKS */
+.nav-links-desktop {
   display: flex;
-  gap: 20px;
   align-items: center;
+  gap: 32px;
 }
 
-.nav-link {
+.nav-links-desktop a {
+  text-decoration: none;
   color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-  padding: 8px 12px;
-  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: var(--heading-color);
-  background-color: rgba(0, 0, 0, 0.05);
+.nav-links-desktop a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
-.theme-toggle {
-  background: none;
+.nav-links-desktop a.nav-cta {
+  background: var(--heading-color);
+  color: var(--bg-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+/* NAV ACTIONS */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-btn, 
+.mobile-toggle-btn {
+  background: transparent;
   border: none;
+  color: var(--heading-color);
+  font-size: 1.1rem;
   cursor: pointer;
-  padding: 8px;
-  color: var(--text-color);
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
+  opacity: 0.6;
+  transition: opacity 0.3s;
 }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
+.theme-btn:hover, 
+.mobile-toggle-btn:hover {
+  opacity: 1;
 }
 
-.mobile-menu-icon {
+.mobile-toggle-btn {
   display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-color);
-  background: none;
-  border: none;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-menu {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background-color: var(--nav-bg);
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
-    border-bottom: 1px solid var(--nav-border-btm);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 999;
-  }
+/* MOBILE DRAWER */
+.nav-mobile-drawer {
+  position: absolute;
+  top: 80px;
+  left: 10%;
+  right: 10%;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border-btm);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .nav-menu.active {
-    transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.nav-mobile-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
 
-  .mobile-menu-icon {
-    display: block;
-  }
+.nav-mobile-drawer a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
 
-  .nav-link {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .navbar-floating {
+    padding: 0 20px;
+  }
+  
+  .nav-links-desktop {
+    display: none;
+  }
+  
+  .mobile-toggle-btn {
+    display: flex;
+    font-size: 1.4rem;
   }
 }
